@@ -1,225 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Para Vos, VICKY 💚</title>
-  <meta name="description" content="Una carta web con amor, hecha a medida." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💚</text></svg>">
-  <!--
-    Personalización rápida:
-    1) Reemplazá {{NOMBRE_DE_ELLA}} por su nombre.
-    2) Cambiá las frases dentro de <p> por las que más sientas.
-    3) En la galería, cambiá las rutas de las imágenes por las tuyas (img1.jpg, etc.), o dejalas vacías.
-    4) Guardá el archivo como index.html y subilo a tu repo. ¡Listo para Vercel!
-  -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg: #0b1220;          /* fondo profundo */
-      --card: rgba(255,255,255,0.08);
-      --text: #eaf2ee;        /* texto claro */
-      --muted: #b9c7c0;       /* texto sutil */
-      --accent: #10b981;      /* verde esmeralda */
-      --accent-2: #34d399;    /* verde suave */
-      --shadow: rgba(0,0,0,0.35);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; color:var(--text); font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(16,185,129,0.15), transparent 60%),
-                  radial-gradient(900px 600px at 10% 110%, rgba(52,211,153,0.12), transparent 60%),
-                  linear-gradient(160deg, #0a0f1a, #0d1322 55%, #0b1220 100%);
-      overflow-x:hidden;
-    }
-    a{color:var(--accent)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JULIAN ACIAR</title>
+    <style>
+        
+        
+* {
+  box-sizing: border-box;
+}
 
-    /* Cabecera / Hero */
-    header{
-      position:relative; min-height:92vh; display:grid; place-items:center; text-align:center; padding:96px 24px 48px;
-    }
-    .title{
-      font-family:'Playfair Display', serif; font-size: clamp(2.4rem, 4.5vw + 1rem, 5.2rem);
-      line-height:1.05; letter-spacing:0.4px; margin:0 0 12px;
-      text-shadow: 0 8px 24px var(--shadow);
-    }
-    .subtitle{font-size:clamp(1rem, 1.2vw + .7rem, 1.3rem); color:var(--muted); max-width:900px; margin:0 auto 28px}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: grey;
+  color: #333;
+  line-height: 1.6;
+}
 
-    .glass{
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
-      border:1px solid rgba(255,255,255,0.15);
-      box-shadow: 0 10px 30px var(--shadow), inset 0 0 0 1px rgba(255,255,255,0.06);
-      border-radius:28px; padding:26px 24px;
-    }
+/* Espaciado consistente para header, main, footer */
+header, main, footer {
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    .cta{
-      display:inline-flex; gap:10px; align-items:center; cursor:pointer;
-      margin-top:10px; padding:14px 20px; border-radius:16px; border:1px solid rgba(255,255,255,0.18);
-      color:#0a1b16; font-weight:700; text-decoration:none; letter-spacing:.3px;
-      background: linear-gradient(180deg, var(--accent), var(--accent-2));
-      box-shadow: 0 14px 30px rgba(16,185,129,0.35), inset 0 0 0 1px rgba(255,255,255,0.15);
-      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-    }
-    .cta:hover{ transform: translateY(-1px); filter:saturate(1.1); box-shadow: 0 18px 38px rgba(16,185,129,0.43) }
+/* Header */
+header {
+  background-color: #1a1a1a; /* Un negro más suave */
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    /* corazones flotantes */
-    .heart{ position:absolute; width:22px; height:22px; transform:translate(-50%, -50%);
-            animation: floatUp var(--dur) linear infinite; opacity:.8; filter: drop-shadow(0 6px 10px rgba(0,0,0,.25));}
-    .heart::before, .heart::after{ content:""; position:absolute; width:50%; height:80%; background: linear-gradient(180deg, #f473b9, #ff6b6b); border-radius:50%;}
-    .heart::before{ left:0; transform:rotate(-45deg) translateX(25%)}
-    .heart::after{ right:0; transform:rotate(45deg) translateX(-25%)}
-    @keyframes floatUp{ from{ transform: translate(var(--x), var(--y)) scale(1) rotate(0deg); opacity:.0 } to { transform: translate(calc(var(--x) + 0px), calc(var(--y) - 140vh)) scale(1.25) rotate(20deg); opacity:1 } }
+/* Navegación */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+}
 
-    /* Secciones */
-    section{padding:64px 20px}
-    .container{max-width:1100px; margin:0 auto}
+nav a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
 
-    .cards{ display:grid; grid-template-columns: repeat(12, 1fr); gap:22px; margin-top:28px }
-    .card{ grid-column: span 12; padding:26px; border-radius:22px; position:relative }
-    .card h3{margin:0 0 8px; font-family:'Playfair Display', serif; font-size:1.6rem}
-    .card p{margin:0; color:var(--muted)}
+nav a:hover,
+nav a:focus {
+  color: #1e90ff; /* Azul vibrante para hover */
+  outline: none;
+}
 
-    /* Responsive columns */
-    @media(min-width:640px){ .card{ grid-column: span 6 } }
-    @media(min-width:960px){ .card{ grid-column: span 4 } }
+/* Main */
+main {
+  background-color: #3A0066;
+  padding: 3rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  margin-top: 2rem;
+  color: white;
+}
 
-    .ring{ position:absolute; inset:-1px; border-radius:22px; border:1px solid rgba(255,255,255,0.14); pointer-events:none }
+/* Footer */
+footer {
+  background-color: #121212;
+  color: #bbb;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  border-top: 1px solid #333;
+}
 
-    /* Galería */
-    .gallery{ display:grid; grid-template-columns: repeat(12, 1fr); gap:12px; margin-top:24px }
-    .photo{ grid-column: span 12; aspect-ratio: 4/3; border-radius:18px; overflow:hidden; position:relative; background: linear-gradient(135deg, rgba(16,185,129,.2), rgba(52,211,153,.15)); border:1px solid rgba(255,255,255,0.14) }
-    .photo img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.05) contrast(1.03) }
-    @media(min-width:640px){ .photo{ grid-column: span 6 } }
-    @media(min-width:960px){ .photo{ grid-column: span 4 } }
+/* Responsive para navegación en móviles */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-    /* Nota final */
-    .note{
-      text-align:center; margin-top:18px; font-size:1rem; color:var(--muted)
-    }
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
 
-    /* Footer */
-    footer{ padding:42px 20px 80px; text-align:center; color:var(--muted) }
-    .small{font-size:.92rem}
-  </style>
+  
+    
+    </style>
 </head>
 <body>
-  <header>
-    <!-- corazones en el header -->
-    <div aria-hidden="true" id="hearts"></div>
 
-    <div class="glass" style="max-width:980px">
-      <h1 class="title">Para VICKY, con todo mi amor</h1>
-      <p class="subtitle">
-        No existe una fórmula que explique lo que siento: sólo sé que cada día a tu lado tiene más color, más calma y más ganas de futuro. Este es mi pequeño rincón para decirte cuánto te admiro, te elijo y te vuelvo a elegir.
-      </p>
-      <a class="cta" href="#razones" title="Ir a razones">💚 Ver por qué te amo</a>
-    </div>
-  </header>
+<!-- Cabecera -->
+<header>
 
-  <main>
-    <section id="razones">
-      <div class="container">
-        <h2 class="title" style="font-size: clamp(1.8rem, 2.2vw + 1rem, 3rem); margin-bottom:6px">Razones por las que te amo</h2>
-        <p class="subtitle" style="margin-top:0">Podría escribir mil, pero empiezo por estas…</p>
+    <h1>JULIAN ACIAR</h1>
+    <a href="https://www.instagram.com/julian.aciar7" target="_blank">
+      <img src ="insta.png"width="100" height="100" alt="Descripción de la imagen" style="border-radius: 25px;">
+    </a>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Sobre mi</a></li>
+            <li><a href="#servicios">Cosas que me gustan</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#contacto">Actualizar perfil</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <div class="cards">
-          <article class="card glass">
-            <span class="ring"></span>
-            <h3>Tu risa</h3>
-            <p>Porque me desarma y me recuerda que la felicidad también suena a carcajada.</p>
-          </article>
-          <article class="card glass">
-            <span class="ring"></span>
-            <h3>Tu forma de cuidar</h3>
-            <p>Tu ternura en los detalles: un mensaje, un mate, un “¿llegaste bien?”.</p>
-          </article>
-          <article class="card glass">
-            <span class="ring"></span>
-            <h3>Cómo soñás</h3>
-            <p>Tu valentía para ir por lo que querés me inspira a ser mi mejor versión.</p>
-          </article>
-          <article class="card glass">
-            <span class="ring"></span>
-            <h3>Nuestros silencios</h3>
-            <p>Porque incluso cuando callamos, siento que me abrazás.</p>
-          </article>
-          <article class="card glass">
-            <span class="ring"></span>
-            <h3>Tu mirada</h3>
-            <p>Es hogar. Donde todo se ordena, donde todo tiene sentido.</p>
-          </article>
-          <article class="card glass">
-            <span class="ring"></span>
-            <h3>Tu complicidad</h3>
-            <p>Porque sos mi equipo, mi aventura y mi calma, todo en una sola persona.</p>
-          </article>
-        </div>
-      </div>
+<!-- Contenido principal -->
+<main>
+    <section id="inicio">
+    <article>
+        <h2>Biografía</h2>
+        <img src="juli.jpg" alt="Foto del usuario" width="150" height="150" border="5">
+        <h3>Julian Aciar</h3>
+        <p>Es una persona amable y muy inteligente, aunque un poco tímido. Prefiere escuchar y observar antes que lanzarse a la conversación.</p>
+    </article>
     </section>
 
-    <section id="recuerdos">
-      <div class="container">
-        <h2 class="title" style="font-size: clamp(1.8rem, 2.2vw + 1rem, 3rem); margin-bottom:6px">Nuestros recuerdos</h2>
-        <div class="gallery">
-          <figure class="photo">
-            <img src="1.jpg" alt="Primer paseo juntos" onerror="this.style.display='none'">
-          </figure>
-          <figure class="photo">
-            <img src="2.jpg" alt="Tu sonrisa favorita" onerror="this.style.display='none'">
-          </figure>
-          <figure class="photo">
-            <img src="3.jpg" alt="Ese atardecer" onerror="this.style.display='none'">
-          </figure>
-          <figure class="photo">
-            <img src="4.jpg" alt="Un lugar que amamos" onerror="this.style.display='none'">
-          </figure>
-          <figure class="photo">
-            <img src="5.jpg" alt="Un brindis" onerror="this.style.display='none'">
-          </figure>
-          <figure class="photo">
-            <img src="6.jpg" alt="Un abrazo" onerror="this.style.display='none'">
-          </figure>
-        </div>
-      </div>
+    <section id="servicios">
+        <h2>Cosas que me gustan</h2>
+        <ul>
+            <li>Tenis</li>
+            <li>Juegos</li>
+            <li>Futbol</li>
+        </ul>
     </section>
 
-    <section id="promesa">
-      <div class="container">
-        <div class="glass" style="padding:34px 28px;">
-          <h2 class="title" style="font-size: clamp(1.8rem, 2.2vw + 1rem, 3rem); margin:0 0 14px">Mi promesa</h2>
-          <p class="subtitle" style="margin-bottom:0">
-            Prometo acompañarte en cada meta, en cada miedo y en cada risa. Prometo escucharte de verdad, celebrar tus logros y sostenerte cuando te canses. Prometo construir un hogar donde queramos volver, siempre.
-          </p>
-        </div>
-      </div>
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 500px;">
+            <thead style="background-color: #7502CC; color: white;">
+            <tr>
+                <th>Tipo de Contacto</th>
+                <th>Información</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Email</td>
+                <td>julianaciar@correo.com</td>
+            </tr>
+            <tr>
+                <td>Teléfono</td>
+                <td>+542612344564</td>
+            </tr>
+            </tbody>
+        </table>
     </section>
-  </main>
+    <section id="Actualizar Perfil">
+        <h2>Actualizar Perfil</h2>
+        <form>
+            <div>
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div>
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+            </div>
+            <div>
+                <label for="bio">Biografía</label>
+            </div>
+            <div>
+                <textarea id="bio" name="bio" placeholder="Cuéntanos sobre ti..."></textarea>
 
-  <footer>
-    <p class="small">Hecho con amor por <strong>FACU</strong>. Hoy y todos los días. 💚</p>
-  </footer>
+                <button type="submit">Guardar Cambios</button>
+            </div>
 
-  <script>
-    // Genera corazones flotantes de manera suave
-    const hearts = document.getElementById('hearts');
-    const spawn = () => {
-      const h = document.createElement('div');
-      h.className = 'heart';
-      const x = Math.random() * window.innerWidth;
-      const d = 6000 + Math.random()*5000; // duración 6-11s
-      h.style.setProperty('--x', x + 'px');
-      h.style.setProperty('--y', (window.innerHeight + 80) + 'px');
-      h.style.setProperty('--dur', d + 'ms');
-      hearts.appendChild(h);
-      setTimeout(() => h.remove(), d);
-    };
-    let interval = setInterval(spawn, 650);
-    // Pausar cuando la pestaña no está activa
-    document.addEventListener('visibilitychange', ()=>{
-      if (document.hidden) clearInterval(interval); else interval = setInterval(spawn, 650);
-    });
-  </script>
+
+        </form>
+    </section>
+</main>
+
+<!-- Pie de página -->
+<footer>
+    <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    <p>Síguenos en redes sociales</p>
+</footer>
+
 </body>
 </html>
